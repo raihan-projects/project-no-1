@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    letter-spacing: 1.5px;
+}
+body {
+    background: #333;
+    color: #ddd;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 2em;
+    height: 4rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    background: linear-gradient(45deg, steelblue, slateblue);
+    color: white;
+}
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.3em;
+    position: absolute;
+    left: 22%;
+    margin-left: 2em;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity .5s ease;
+}
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+}
+.navbar ul li a:before {
+    content: '';
+    background: white;
+    height: .05em;
+    width: 1em;
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    left: 20px;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: .3s ease;
+}
+.navbar ul li a:hover:before {
+    transform: scaleX(1.2);
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.menu .bar {
+    background: white;
+    height: .2em;
+    width: 1.5em;
+    margin: .2em;
+    border-radius: 50vh;
+    transition: .3s ease;
+}
+.navbar.menu-active .menu .bar:nth-child(1) {
+    transform: scaleX(.4) translateY(0em) rotate(15deg);
+    transform-origin: left;
+}
+.navbar.menu-active .menu .bar:nth-child(2) {
+    transform: scaleX(1.5) rotate(-45deg);
+    transform-origin: center;
+    border-radius: 0 50vh 0vh 50vh;
+}
+.navbar.menu-active .menu .bar:nth-child(3) {
+    transform: scaleX(.4) translateY(-0em) rotate(15deg);
+    transform-origin: right;
+}
+.navbar.menu-active ul{
+    visibility: visible;
+    position: static;
+    flex: 1;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform .3 ease .5s;
+}
+.navbar .logo, .navbar .search {
+    font-size: 1.3em;
+    font-family: cursive;
+}
+.navbar .search {
+    flex: .1;
+    text-align: right;%
+}
+.navbar.menu-active .logo, .navbar.menu-active .search {
+    display: none;
+}
+.navbar .search .search-box {
+    position: fixed;
+    width: 100%;
+    top: 4.05rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+    z-index: 9;
+}
+.search.search-active .search-box {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .5s ease, transform .5s ease;
+}
+.search .search-icon .glass {
+    border: .05em solid white;
+    height: .6em;
+    width: .6em;
+    border-radius: 50%;
+    transform: translateX(-7px) translateY(-3px);
+    transition: .5s ease;
+    z-index: 0;
+}
+.search .search-icon .handle {
+    background: white;
+    height: .1em;
+    width: .6em;
+    transform: rotate(-300deg);
+    transition: .5s ease;
+}
+.search.search-active .search-icon .glass {
+    transform: translateX(0) translateY(2px) rotate(-45deg);
+    border-radius: 0;
+    height: 0;
+    width: 1em;
+}
+.search.search-active .search-icon .handle {
+    transform: rotate(45deg);
+    width: 1.1em;
+}
+.search .search-box .textbox {
+    width: 65%;
+    padding: .5em 1em;
+    font-size: 1.1rem;
+    background: white;
+    border: none;
+    border-radius: .5em 0em 0em .5em;
+    transition: .3s ease;
+}
+.search .search-box .button {
+    width: 25%;
+    background: slategray;
+    color: white;
+    border: none;
+    border-radius: 0 .5em .5em 0;
+    font-size: 1.2rem;
+    cursor: pointer;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s ease;
+}
+.search-box .button span {
+    font-size: .8em;
+}
+.search .search-box .textbox:focus {
+    outline-color: slateblue;
+}
+.search .search-box .textbox:active {
+    transform: scale(.95);
+    transform-origin: right;
+}
+.search .search-box .button:hover {
+    background: linear-gradient(-45deg, steelblue, slateblue);
+}
+.search .search-box .button:active {
+    transform: scale(.9);
+    transform-origin: left;
+}
+.container {
+    padding: 5em 2em;
+    text-align: center;
+}
+.container .circle {
+    height: 15em;
+    width: 15em;
+    border-radius: 100vh;
+    background: linear-gradient(45deg, slateblue, steelblue);
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container .circle i {
+    font-size: 10em;
+}
+.container h1 {
+    margin: 1rem 0;
+}
+.social-icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
